@@ -10,17 +10,17 @@ import java.time.OffsetDateTime
 
 @Entity
 @Table(name = "notes")
-class Note {
+class Note(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null
+    var id: Long? = null,
 
     @Column(nullable = false, length = 150)
-    var title: String = ""
+    var title: String,
 
     @Column(columnDefinition = "TEXT")
-    var content: String? = null
+    var content: String? = null,
 
     @Column(name = "created_at", nullable = false)
     var createdAt: OffsetDateTime? = OffsetDateTime.now()
-}
+)
